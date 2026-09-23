@@ -10,11 +10,33 @@
 \begin{document}
 
 \begin{exercise}
-Testo dell'esercizio.
+
+	Let $\mathcal{T}$ be a p.u. theory. Then the following are equivalent:
+	\begin{enumerate}
+		\item	$\mathcal{T}$ is irreducible
+		\item	$\mathcal{T}$ has JEP
+	\end{enumerate}
 \end{exercise}
 
 \begin{proof}
-Testo della dimostrazione.
-\end{proof}
 
+	\begin{itemize}
+		\item	$1) \Rightarrow 2)$: Let $A,B \models \mathcal{T}$. By contradiction assume that no model of $\mathcal{T}$
+			admits morphisms from $A,B$. Equivalently, $\mathcal{T} \cup Diag^+(A) \cup Diag^+(B)$ is inconsistent.
+			\footnote{$Diag^+(A)$ =\{atomic formulas with parameters in $A$ satisfied by $A$ \} and same for $B$}
+			By compactness we can find $\tau, \phi(\vec{a}), \psi(\vec{b})$ inconsistent, where
+			$\tau$ is a finite conjunction of formulas in $\mathcal{T}$, 
+			$\phi(\vec{a})$ is a finite conjunction of formulas in $Diag^{+}(A)$ and
+			$\psi(\vec{b})$ is a finite conjunction of formulas in $Diag^{+}(B)$.
+			Equivalently $\mathcal{T} \models \neg(\phi(\vec{a}) \land \psi(\vec{b}))$.
+			Since $\vec{a},\vec{b}$ are fresh constants, this is the same as
+			$\mathcal{T} \models \neg(\exists y \phi(y) \land \exists z \psi(z))$.
+			Equivalently $\mathcal{T} \models \forall y \neg \phi(y) \lor \forall z \neg \psi(z)$.
+			Note that this is a dijunction of p.u. so by irreducibility we can assume for example
+			$\mathcal{T} \models \forall y \neg \phi(y)$.
+			In particular $A \models \forall y \neg \phi(y)$.
+			This is a contradiction since $\phi(\vec{a}) \in Diag^+(A)$.
+		\item	hgkdfhgl
+	\end{itemize}
+\end{proof}
 \end{document}
