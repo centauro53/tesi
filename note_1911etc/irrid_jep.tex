@@ -31,12 +31,20 @@
 			Equivalently $\mathcal{T} \models \neg(\phi(\vec{a}) \land \psi(\vec{b}))$.
 			Since $\vec{a},\vec{b}$ are fresh constants, this is the same as
 			$\mathcal{T} \models \neg(\exists y \phi(y) \land \exists z \psi(z))$.
-			Equivalently $\mathcal{T} \models \forall y \neg \phi(y) \lor \forall z \neg \psi(z)$.
+			Equivalently  (because morphisms preserve pp) $\mathcal{T} \models \forall y \neg \phi(y) \lor \forall z \neg \psi(z)$.
 			Note that this is a dijunction of p.u. so by irreducibility we can assume for example
 			$\mathcal{T} \models \forall y \neg \phi(y)$.
 			In particular $A \models \forall y \neg \phi(y)$.
 			This is a contradiction since $\phi(\vec{a}) \in Diag^+(A)$.
-		\item	hgkdfhgl
+		
+		\item	$2) \Rightarrow 1)$: By contradiction, let $\alpha, \beta$ pu sentences such that 
+			$\mathcal{T} \models \alpha \lor \beta$ but $\mathcal{T} \not \models \alpha,\beta$.
+			Let then $A,B$ models of $\mathcal{T}$ such that $A \not \models \alpha$, $B \not \models \beta$.
+			Let $C$ model of $\mathcal{T}$ found using JEP on $A,B$.
+			Since $C \models \mathcal{T}$ it must be $C \models \alpha$ or $C \models \beta$.
+			Assume for example that $C \models \alpha$.
+			Note that $\neg \alpha$ is pp and $A \models \neg \alpha$, so $C \models \neg \alpha$ (because morphisms preserve pp).
+			Contradiction.
 	\end{itemize}
 \end{proof}
 \end{document}
