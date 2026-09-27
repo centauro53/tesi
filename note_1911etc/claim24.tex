@@ -1,0 +1,27 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Let $N \models \mathcal{T}$, such that $N \models \Phi(a)$. 
+	Then $\mathcal{T} \cup \{ \exists y \ \phi(x,y) \}$ is consistent.
+
+\end{exercise}
+
+\begin{proof}
+
+	By contradiction, let's say it is inconsistent.
+	Then $T \models \neg (\exists x \ \exists y \ \phi(x,y) )$, so by definition of $\mathcal{T}^+$ we have $\neg (\exists x \ \Phi(x) ) \in \mathcal{T}^+$.
+	Then $N \models \Phi(a) \land \neg (\exists x \ \Phi(x) )$, a contradiction.
+
+\end{proof}
+
+\end{document}
