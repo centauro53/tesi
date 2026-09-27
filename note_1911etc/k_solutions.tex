@@ -1,0 +1,37 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Let $R$ pp formula and let $M,N$ ec models of $\mathcal{T}^{\pm}$. Suppose that $R$ has the same number of solutions in $M,N$.
+
+\end{exercise}
+
+\begin{proof}
+
+	Suppose $M$ has exactly $k$ solutions. 
+	We can express "there are at most $k$ solutions" as:
+	\[
+		\forall x_1,..,x_k,x_{k+1} (\bigwedge_{i = 1,..,k+1} R(x_i)  \to \bigvee_{i < j} x_i = x_j)
+	\]
+
+	This is preserved by 2) of the lemma, as "=" will be expressible by a pp-type.
+
+	We can express the negation of "there are at least $k$ solutions" as:
+	\[
+		\forall x_1,..,x_k  (\bigwedge_{i=1,..,k} R(x_i) \to \bigvee_{i < j} x_i = x_j)
+	\]
+
+	This is preserved by 2) of the lemma as "=" will be expressible by a pp-type.
+
+\end{proof}
+
+\end{document}
