@@ -31,4 +31,46 @@
 
 \end{proof}
 
+
+
+
+\begin{exercise}
+
+	Let $N$ ec model fot $\mathcal{T}^+$ and assume $N \models \exists y \phi(a,y)$. Then $N \models \Phi(a)$.
+
+\end{exercise}
+
+\begin{proof}
+
+	By contradiction, say $N \not \models \Phi(a)$. Now consider $N'$, whose semantic is the same as $N$ with the only difference that $N' \models \Phi(a)$.
+	We claim that $N' \models \mathcal{T}^+$. 
+	In fact otherwise there would be some sentence of the form $\rho \equiv \exists x_1,..,x_l \ \bigwedge_{k = 1,..,n} Q_k(\vec{x})$ such that
+	$N' \models \rho$ but $\mathcal{T} \models \neg \rho'$, where $\rho'$ is obtained as the substituion of every occurrence in $\rho$ of $\Phi$ with $\exists y \phi$.
+	Let $\vec{b}$ be the solution of $\rho$ in $N'$ and let $\vec{b_k}$ be what occurs in $Q_k$. Then split the istantion of $\rho$ as:
+	\[
+		\bigwedge_{k: Q_k \not = \Phi} Q_k(b_k) \land \bigwedge_{k: Q_k = \Phi, \vec{b_k} = \vec{a}} Q_k(a) \land \bigwedge_{k: Q_k = \Phi, \vec{b_k} \not = \vec{a}} Q_k(\vec{b_k})
+	\]
+	Now observe that 
+	\[
+		N \models \bigwedge_{k: Q_k \not = \Phi} Q_k(b_k) \land \bigwedge_{k: Q_k = \Phi, \vec{b_k} = \vec{a}} \exists y \phi(a,y) 
+		\land \bigwedge_{k: Q_k = \Phi, \vec{b_k} \not = \vec{a}} Q_k(\vec{b_k})
+	\]
+
+	In fact:
+	\begin{enumerate}
+		\item	the first and third $\bigwedge$ are ok because $N,N'$ are the same here and $N'$ models it.
+		\item	the second is ok because by hypothesis $N \models \exists y \phi(a,y)$.
+	\end{enumerate}
+
+	Finally, by the previous exercise we get
+	\[
+		N \models \bigwedge_{k: Q_k \not = \Phi} Q_k(b_k) \land \bigwedge_{k: Q_k = \Phi, \vec{b_k} = \vec{a}} \exists y \phi(a,y) \land 
+		\bigwedge_{k: Q_k = \Phi, \vec{b_k} \not = \vec{a}} \exists y \phi(\vec{b_k},y)
+	\]
+
+	But this is a contradiction since this means that $N \models \rho$, so $N \not \models \mathcal{T}^+$.
+	So far we proved that $N' \models \mathcal{T}^+$.
+	Now observe that $N \to N', n \mapsto n$ is a morphism and $N' \models \Phi(a)$. Then using $N$ ec we get $N \models \Phi(a)$.
+
+\end{proof}
 \end{document}
