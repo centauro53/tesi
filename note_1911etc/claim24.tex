@@ -11,16 +11,23 @@
 
 \begin{exercise}
 
-	Let $N \models \mathcal{T}$, such that $N \models \Phi(a)$. 
-	Then $\mathcal{T} \cup \{ \exists y \ \phi(x,y) \}$ is consistent.
-
+	Let $N \models \mathcal{T}$, ec for $\mathcal{T}^+$, such that $N \models \Phi(a)$. 
+	Let $p(x) = pp-tp(a)$ (intended in the new language). Then $\mathcal{T} \cup p(x) \cup \{\exists y \phi(x,y) \}$ is consistent.
+	As a consequence, $N \models \exists y \phi(a,y)$.
 \end{exercise}
 
 \begin{proof}
 
-	By contradiction, let's say it is inconsistent.
-	Then $T \models \neg (\exists x \ \exists y \ \phi(x,y) )$, so by definition of $\mathcal{T}^+$ we have $\neg (\exists x \ \Phi(x) ) \in \mathcal{T}^+$.
-	Then $N \models \Phi(a) \land \neg (\exists x \ \Phi(x) )$, a contradiction.
+	By contradiction, let's say it is inconsistent. Then it is finitely inconsistent.
+	Then $T \models \neg (\exists x \ \exists y \ \phi(x,y) \land \bigwedge_{k=1,..,n} \theta_k(x) )$ for some $\theta_1,..,\theta_n \in p(x)$.
+	Conjunction of pp formulae is equivalent to a pp formula, so by definition of $\mathcal{T}^+$ we have 
+	$\neg (\exists x \ \Phi(x) \land \bigwedge_{k=1,..,n} \theta_k(x) ) \in \mathcal{T}^+$.
+	Then $N \models p(a) \land \Phi(a) \land \neg (\exists x \ \Phi(x) \land \bigwedge_{k=1,..,n} \theta_k(x))$, a contradiction.
+
+	By compactness, we can find a model $M$ of $\mathcal{T}$ such that for some $c \in M^x$ we have $M \models p(c) \land \exists y \phi(c,y)$.
+	Let $M'$ be an $|N|^+$-saturated elementary extension of $M$. 
+	Then one can extend $a \mapsto c$ to a morphism from $N \to M'$.
+	Since $M' \models \exists y \phi(c,y)$ and $N$ is ec (in the new language, therefore in the original) we get $N \models \exists y \phi(a,y)$.
 
 \end{proof}
 
