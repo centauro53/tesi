@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Assume $\mathcal{T}$ irreducible. Then $\mathcal{T}^+$ irreducible.
+
+\end{exercise}
+
+\begin{proof}
+
+	Since $\mathcal{T}$ irreducible, let $M$ such that $Th_{pu}(M) = \mathcal{T}$.
+	Then $M^+$ is ec model of $\mathcal{T}^+$. We claim that $Th_{pu}(M^+) = \mathcal{T}^+ $.
+	
+	By contradiction, let $\psi$ pp sentence such that $M^+ \models \neg \psi$ and $\neg \psi \not \in \mathcal{T}^+$.
+	Write $\psi$ as $\exists \vec{x} \ \bigwedge Q_k (\vec{x})$, which can be decomposed as 
+	$\exists \vec{x} \ \bigwedge_{Q_k = \Phi} \Phi(\vec{x_k}) \land \bigwedge_{Q_k \not = \Phi} Q_k(\vec{x_k})$ where
+	$\vec{x_k}$ denotes the variables effectively occurring in $Q_k$.
+	
+	Now denote $\psi'$ the sentence obtained by replacing each occurrence of $\Phi$ in $\psi$ with $\exists y \phi$.
+	Since $\neg \psi \not \in \mathcal{T}$ we have by definition that $\mathcal{T} \not \models \neg \psi'$.
+	In particular there must be some $N \models \mathcal{T}$ such that $N \models \psi'$ which we can suppose ec using the direct limit construction
+	($\psi'$ will be preserved since morphism preserve pp formulas).
+	
+	Now observe that:
+	\begin{itemize}
+		\item $N^+ \models \psi$ since the semantic of $\Phi$ is by definition the same of $\exists y \phi$.
+		\item $N^+$ is ec model of $\mathcal{T}^+$ since we took $N$ ec model of $\mathcal{T}$.
+	\end{itemize}
+
+	This is a contradiction since $M^+, N^+$ are ec models of $\mathcal{T}^+$ but they don't agree on the pp formula $\psi$.
+	Then letting $U$ be the forgetful functor one expects,
+	$U(M^+),U(N^+)$ are ec models of $\mathcal{T}$ that don't agree on the (equivalent to a) pp formula $\psi'$.
+	This is a contradiction since $\mathcal{T}$ is irreducible.
+
+\end{proof}
+
+\end{document}
