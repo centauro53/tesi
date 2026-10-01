@@ -1,0 +1,86 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Let $A \models \mathcal{T}$ and denote by $pp(A)$ the set of pp formulas with parameters from $A$.
+	Consider the category $Mod(\mathcal{T})$ (with arrows morphisms between models of $\mathcal{T}$).
+	Then one can construct an ec model of $\mathcal{T}$ as a direct limit starting from $A$.
+
+\end{exercise}
+
+\begin{proof}
+
+	Let $\kappa = |pp(A)|$ and let $e: \kappa \to \kappa \times \kappa$ be some dove-tail enumeration.
+	We will now construct a direct system $\{A_\alpha : \alpha < \kappa \}$ with direct arrows $f_{i,j}$ for $i \leq j < \kappa$.
+	Let $PP = \{\phi_{\alpha,\beta} : \alpha,\beta < \kappa \}$ where $\phi_{\alpha,\beta}$ is the $\alpha$-th formula enumerated in $pp(A_\beta)$
+	Consider the following direct system:
+	\begin{itemize}
+		\item	$A_0 = A$
+		\item	$A_{\alpha + 1}$ is some model of $\mathcal{T} \cup Diag^+(A_{\alpha}) \cup \{\phi_{e(\alpha)}\}$ if consistent and $A_{\alpha}$ otherwise
+		\item	$A_{\beta}$ is the direct limit of $\{A_{\alpha} : \alpha < \beta \}$ if $\beta$ limit
+	\end{itemize}
+	
+	As direct arrows, take the ones given by $Diag^+(A_{\bullet})$. 
+	So for example: if $i < j$, by construction we have $Diag^+(A_0) \subseteq Diag^+(A_1) \subseteq .. Diag^+(A_i) \subseteq .. \subseteq Diag^+(A_j)$.
+	Therefore including fresh constants at each steps the direct arrows are determined.
+
+	It is clear that this is a direct system, but we need to show that such a direct system exists. In particular we claim that direct limit exist.
+	Given a direct system $(M_i : i < \lambda)$ with direct arrows $(f_{i,j} : i \leq j < \lambda)$ we build the direct system as the following structure:
+	Put $m \equiv n$ if there are $i \leq j < \lambda$ such that $f_{i,j}(m) = n$ (or viceversa) to generate an equivalence relation on $\bigsqcup_{i < \lambda} M_i$.
+	\begin{itemize}
+		\item	$M = \{ [m] : m \in M_i \text{ for some }i < \lambda \}$
+		\item	$M \models F([m]) = [n]$ iff $\exists i < \lambda \exists m',n' \in M_i \ m' \equiv m \land n' \equiv n \land M_i \models F(m') = n'$.
+		\item	$M \models R([m])$ iff $\exists i < \lambda \exists m' \in M_i \ m \equiv m' \land  M_i \models R(m')$.
+
+	\end{itemize}
+
+	We need to prove:
+	\begin{itemize}
+		\item	$M$ is well defined: 
+			by contradiction let's say 
+			$\exists i \leq j \ \exists m_1,n_1 \in M_i \exists m_2,n_2 \in M_j \ 
+			m_1 \equiv m_2 \land n_1 \equiv n_2 \land M_i \models F(m_1) = n_1 \not \iff M_k \models F(m_2) = n_2$
+			For example we may suppose $i < j$, $M_i \models F(m_1) = n_1$, $M_2 \models F(m_2) \not = n_2$.
+			This means $M_2 \models F(f_{i,j}(m_1)) \not = f_{i,j}(n_1)$ which is a contradiction since $f_{i,j}$ is a morphism.
+			One treats other cases similarly.
+
+		\item	$M \models \mathcal{T}$:
+			By contradiction, assume $M \models \phi$ where $\phi$ is a pp formula such that $\neg \phi \in \mathcal{T}$.
+			Then $\phi$ will be of the form $\exists x_1,..,x_n \bigwedge Q(x_1,..,x_n)$.
+			Let $[m_1],..,[m_n] \in M$ be such that $M \models \bigwedge Q([m_1],..,[m_n])$.
+			Let $\alpha < \lambda$ such that $[m_1],..,[m_n] \in M_{\alpha}$.
+			By definition of $M$ we have $M_{\alpha} \models \bigwedge Q(m_1,..,m_n)$.
+			So $M_{\alpha} \models \phi$. This is a contradiction since by construction $M_{\alpha} \models \neg \phi$.
+
+		\item	$M$ is the direct limit:
+			Let $E \models \mathcal{T}$, $(g_i: M_i \to E)_{i < \lambda}$ arrows such that $\forall i \leq j < \lambda \ g_j \circ f_{i,j} = g_i$. 
+			Now consider $h: M \to E, [m] \mapsto g_i(m)$. This is well defined:
+			say $[m_i] = [m_j]$ with $m_i \in M_i, m_j \in M_j$ and $i < j$ (the case $i = j$ can be treated using the same argument two times takink a third index $l > i = j$).
+			Then $m_j = f_{i,j}(m_i)$ so we need to prove that $g_j(f_{i,j}(m_i)) = g_i(m_i)$, which is true by hypothesis.
+
+	\end{itemize}
+
+	Now we only need to prove that $A_{\kappa}$ (the direct limit of the whole direct system):
+	\begin{itemize}
+		\item	is a model of $\mathcal{T}$: ok from observations above
+		\item	is direct limit: ok by definition (the existence is ok from above)
+		\item	is ec:
+			by contradiction, let $f: A_{\kappa} \to B$ morphism for some $B \models \mathcal{T}, \phi(f(a))$ with $A_{\kappa} \not \models \phi(a)$ and $\phi$ pp formula.
+			Let $\alpha < \kappa$ such that $\phi(a) = \phi_{e(\alpha)}$.
+			Since $A_{\alpha} \to A_{\kappa} \to B$ we also have $A_{\alpha} \to B$, so $B \models Diag^+(A_{\alpha})$.
+			In particular $\mathcal{T} \cup Diag^+(A_{\alpha}) \cup \{\phi_{e(\alpha)}\}$ is consistent.
+			Therefore $A_{\alpha +1} \models \phi_{e(\alpha)}$ and consequently $A_{\kappa} \models \phi_{e(\alpha)}$, contradiction.
+	\end{itemize}
+
+\end{proof}
+
+\end{document}
