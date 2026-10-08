@@ -1,0 +1,74 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+In the following assume $\mathcal{U}$ is a monster model for $T$. One can identify $S_x(M)$ with $\mathcal{U}/\sim$ where $a \sim b$ iff $tp(a/M) = tp(b/M)$.
+Let $f: \mathcal{U} \to S_x(M), a \mapsto tp(a/M)$.
+
+\begin{exercise}
+
+	Let $A \subseteq S_x(M)$ open. Then tfae:
+	\begin{enumerate}
+		\item	$A$ p-open
+		\item	for all $\phi(x,b)$ such that $\phi(\mathcal{U},b) \subseteq A$ there exists $\theta(z) \in tp(b/\emptyset)$ such that
+			for all $b' \in \theta(M) \ \phi(\mathcal{U},b') \subseteq A$ 
+	\end{enumerate}
+
+\end{exercise}
+
+\begin{proof}
+
+	\begin{itemize}
+		\item	$1) \Rightarrow 2)$: 
+			Let $p(x) \in A$. Then there must exist $\psi_p(x,z), \theta_p(z) \in L$ such that $p(x) \in \neg R_{\psi_p,\theta_p}(S_x(M)) \subseteq A$.
+			This is equivalent to saying that:
+			\begin{itemize}
+				\item	$\exists b' \in \theta(M) \ \psi_p(x,b') \in p(x)$
+				\item	$\bigcup_{b' \in \theta(M)} \psi_p(S_x(M),b') \subseteq A$, where $\psi_p(q(x),b')$ holds iff $\psi_p(x,b') \in q(x)$.
+					If we take $q(x) = tp(a/M)$, then saying $\psi(q(x),b')$ holds is the same as saying $\psi(a,b')$ holds.
+					So if we step back from $S_x(M)$ to $\mathcal{U}$ the condition becomes $\bigcup_{b' \in \theta(M)} \psi_p(\mathcal{U},b') \subseteq f^{-1}(A)$.
+			\end{itemize}
+
+			The first condition tells us that $p(\mathcal{U}) \subseteq \psi_p(\mathcal{U},b')$.
+			Then 
+			\[
+				\phi(\mathcal{U},b) \subseteq \bigcup_{p(x) \models \phi(x,b)} p(\mathcal{U}) 
+				\subseteq \bigcup_{p(x) \models \phi(x,b)} \bigcup_{b' \in \theta_p(M)} \psi_p(\mathcal{U},b')
+			\]
+			By compactness we can extract 
+			\[
+				\phi(\mathcal{U},b) \subseteq \bigcup_{i = 1,..,n} \psi_i(\mathcal{U},b_i') \text{ with } b_1' \in \theta_1(M),.., b_n' \in \theta_n(M)
+			\]
+
+			This implies that $\mathcal{U} \models \forall x \ \bigg( \phi(x,b) \to \bigvee_{i = 1,..,n} \psi_i(x,b_i') \bigg)$.
+			By elementarity $M$ models the same. Now consider 
+			\[
+				\theta(z) : \forall x \ \bigg( \phi(x,z) \to \bigvee_{i = 1,..,n} \exists y (\theta_i(y) \land \psi_i(x,y)) \bigg)
+			\]
+
+			It is immediate that $\theta(z) \in tp(b/\emptyset)$.
+			Now let $M \models \theta(c)$. Let $d_1,..,d_n \in M$ such that $M \models \forall x \bigg( \phi(x,c) \to \bigvee_{i = 1,..,n} \theta_i(d_i) \land \psi_i(x,d_i) \bigg)$.
+			By elementarity $\mathcal{U} \models \forall x \bigg( \phi(x,c) \to \bigvee_{i = 1,..,n} \theta_i(d_i) \land \psi_i(x,d_i) \bigg)$.
+			This is the same as $\phi(\mathcal{U},c) \subseteq \bigcup_{i = 1,..,n} \psi_i(\mathcal{U},d_i) \subseteq A$.
+			So we have $\theta(z)$ is the formula we were looking for.
+
+		\item	$2) \Rightarrow 1)$:
+			Since $A$ open we can write 
+			\[
+				A = \bigcup_{\phi(\mathcal{U},b) \subseteq A, b \in M} \phi(\mathcal{U},b) \subseteq 
+				\bigcup_{\phi(\mathcal{U},b) \subseteq A, b \in M} \neg R_{\phi,\theta_{\phi}}
+			\]
+			where $\theta_\phi (z) $ is the formula given by hypothesis.
+
+	\end{itemize}
+
+\end{proof}
+
+\end{document}
