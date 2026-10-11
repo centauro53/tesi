@@ -46,4 +46,80 @@ We say $U \in St(X)$ converges to $x \in X$ meaning that every open neighbouroud
 
 \end{proof}
 
+
+Now we state a generalization on the condensation lemma. Given $X$ topological space and $(x_i : i \in I) \subseteq X$ with $I$ infinite, let $U$ be ultrafilter on $I$.
+We say that $x$ is limit along $U$ of $(x_i : i \in I)$ if 
+\[
+	\forall V \in \tau_x \{ i \in I : x_i \in V \} \in U
+\]
+
+If the limit is unique (this is the case if $\tau$ is $T2$) we will denote $x = lim_{U} (x_i : i \in I)$.
+
+\begin{exercise}
+
+	Let $(X,\tau)$ compact, $T2$ topological space. Let $(x_i : i \in I) \subseteq X$, with $|X| \geq \omega$. Let $U$ ultrafilter on $I$.
+	Then there exists unique limit along $U$ of $(x_i : i \in I)$.
+
+\end{exercise}
+
+\begin{proof}
+
+	Consider $f: I \to X, i \mapsto x_i$. We can define $f_*: St(I) \to St(X), H \mapsto \{ A \subseteq X : f^{-1}(A) \in H \}$.
+	It is easy to verify that $f_*$ is well defined. Now $f_*(U)$ is an ultrafilter on $X$, compact, so we can apply the exercise above to see that
+	there is a limit for $(x_i : i \in I)$ along $f_*(U)$. This is unique since $X$ $T_2$. Call $x$ such limit.
+	Then $ \forall V \in \tau_x V \in f_*(U) $ and by definition of $f_*$ we have $\forall V \in \tau_x \{i \in I : x_i \in V\} \in U$.
+	Equivalently $x$ is limit along $U$ of $(x_i : i \in I)$.
+
+\end{proof}
+
+Note that in the case $I = \omega$ and $U = \{ A \subseteq I : |A^c| < \omega \}$ we obtain that $\exists x \in X \forall V \in \tau_x \exists A \in U \{x_i : i \in A\} \subseteq V$.
+If $X$ is a metric space, take $V_2 = B(x,1/2),..,V_n = B(x,1/n),..$ and $A_2,..,A_n,..$ the corresponding element in $U$
+Now choose $a_n$ as the minimum element in $A_n$ such that $a_n > a_{n-1}$. Then $\{ a_n : n < \omega \}$ gives the thesis of condensation lemma.
+
+\begin{exercise}
+
+	$G$ is compact.
+
+\end{exercise}
+
+
+\begin{proof}
+
+	Fixing an embedding of $J$ in $S_x(M)$ one can assume wlog that $J \subseteq S_x(M)$.
+	Denote $E = End(S_x(M)) = \{f \in S_x(M)^{S_x(M)}: f \text{ endomorphism of } S_x(M) \}$.
+	Let $G = (g_i : i \in I)$ enumeration and let $U$ ultrafilter on $I$.
+	By the first above exercise it is enough proving that the limit of $(g_i : i \in I)$ along $U$ exists.
+	Use homogeneity of $S_x(M)$ to extend each $g_i$ to $\overline{g_i} \in E$.
+	Equip $S_x(M) ^{S_x(M)}$ with the product standard topology.
+	Then $S_x(M)^{S_x(M)}$ is compact and $E$ is a closed subspace. 
+	In fact, enumerate $S_x(M) = (p_{\alpha}: \alpha < \lambda)$ and observe that (by finite character of morphisms)
+	\begin{align*}
+		((p_{\alpha},q_{\alpha}): \alpha < \lambda) \in E \\ 
+		& \iff \forall n < \omega \forall \alpha_1 < \alpha_2 < .. < \alpha_n loc(p_{\alpha_1},..,p_{\alpha_n}) \supseteq loc(q_{\alpha_1},..,q_{\alpha_n}) \\
+		& \iff \forall n < \omega \forall \alpha_1 < \alpha_2 < .. < \alpha_n ((p_{\alpha_1},..,p_{\alpha_n}),(q_{\alpha_1},..,q_{\alpha_n})) \in loc(p_{\alpha_1},..,p_{\alpha_n})^2
+	\end{align*}
+
+	Since $loc(p_{\alpha_1},..,p_{\alpha_n})$ is closed in $S_x(M)^n$ we get $E$ closed.
+	Now the limit of $(\overline{g_i} : i \in I)$ along $U$ exists unique in $S_x(M)^{S_x(M)}$ since it is compact and $T_2$.
+	Denote $\overline{g}_*$ such limit. We claim $\overline{g}_* \in E$. By contradiction $\overline{g}_* \in E^c$. Since $E^c$ open and by definition of limit,
+	$A:= \{i \in I : \overline{g_i} \in E^c\} \in U$. In particular $A \not = \emptyset $. Let $i \in A$. Then $\overline{g_i} \not \in E$. This is a contradiction.
+	Let $f: S_x(M) \to J$ retraction and let $g:= (f \circ \overline{g_*}) \restriction_J \in End(J) = Aut(J)$.
+	We claim that $g$ is the limit of $(g_i : i \in I)$ along $U$.
+	By contradiction, let $R,a,b$ such that $g \in O_{R,a,b} \not \in U$.
+	Now observe that 
+	\begin{align*}
+		g \in O_{R,a,b} \iff & J \models \neg R(g(a),b) \\
+		& \iff J \models \neg R(f(\overline{g}_*(a)),f(b)) \\
+		& \iff S_x(M) \models \neg R(\overline{g}_*(a),(b)) \\
+		& \iff \overline{g}_* \in O_{R,a,b}
+	\end{align*}
+
+	Since $\overline{g}_*$ is the limit of $(\overline{g_i}: i \in I)$ along $U$ and $O_{R,a,b}$ open in $S_x(M)^{S_x(M)}$, we have
+	$\{i \in I: \overline{g_i} \in O_{R,a,b}\} \in U$. Equivalently $\{i \in I: S_x(M) \models \neg R(\overline{g_i}(a),b) \} \in U$.
+	Since $a,b \in J$, this is the same as $\{i \in I: J \models \neg R(g_i(a),b)\} \in U$.
+	This is a contradiction since $O_{R,a,b}$ should witness $g$ non limit.
+
+\end{proof}
+
+
 \end{document}
