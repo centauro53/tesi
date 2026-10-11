@@ -1,0 +1,49 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+In the following by ultrafilter on $X$ we mean an ultrafilter on $P(X)$. 
+Denote $\tau_x$ the open neighbourouds of $x$.
+We say $U \in St(X)$ converges to $x \in X$ meaning that every open neighbouroud of $x$ is in $U$.
+
+\begin{exercise}
+
+	Let $(X,\tau)$ be a topological space. Then tfae:
+	\begin{enumerate}
+		\item	$X$ compact
+		\item	$\forall U \in St(X) \ U$ converges to some $x \in X$
+	\end{enumerate}
+
+\end{exercise}
+
+\begin{proof}
+
+	\begin{itemize}
+		\item	$1) \Rightarrow 2)$:
+			By contradiction assume 
+			\[
+				\exists U \in St(X) \forall x \in X \exists V_x \in \tau_x V_x \not \in U
+			\]
+			Let $C_x = X \setminus V_x$. Then $\forall x \in X \ C_x \in U$.
+			Observe that $\{V_x : x \in X \}$ is an open covering of $X$, so by compactness we can extract a finite sub-covering $\{ V_{x_1},..,V_{x_n}\}$.
+			Then $\bigcap_{i=1,..,n} C_{x_i} = \emptyset$, contradiction since $\emptyset \not \in U$.
+
+		\item	$2) \Rightarrow 1)$:
+			By contradiction assume $\{U_i : i \in I \}$ is some covering of $X$ that does not admit a finite sub-covering.
+			Denote $V_i := X \setminus U_i$ for all $i \in I$. This gives that $\{V_i : i \in I\}$ are closed subsets of $X$ with the fip.
+			Then there exists some ultrafilter $U$ such that $\{V_i : i \in I\} \subseteq U$.
+			Let $x \in X$ be convergence point for $U$.
+			Since $\{U_i : i \in I\}$ is a covering of $X$ there must be some $j$ such that $x \in U_j$.
+			But then $U_j \in U, V_j \in U$, which implies $\emptyset \in U$, contradiction.
+	\end{itemize}
+
+\end{proof}
+
+\end{document}
