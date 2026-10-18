@@ -1,0 +1,44 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Let $C(\phi_1,..,\phi_n) \in \Delta$ boolean combination of $\phi_1(x_1,z),..,\phi_n(x_n,z)$.
+	Then there exists $R' \in L_p$ such that $\exists y R_{C(\phi_1,..,\phi_n),\theta} (x,y) \iff R'(x)$.
+
+\end{exercise}
+
+\begin{proof}
+
+	Observe that 
+	\[
+		a,b \models R_{C(\phi_1,..,\phi_n),\theta}(x,y) \iff a,b \models \{\neg C(\phi_1,..,\phi_n) (x,y,m) : m \in \theta(M^z) \}
+	\]
+	In particular 
+	\begin{align*}
+		a \models \exists y R_{C(\phi_1,..,\phi_n),\theta}(x,y) \iff & b \models \{\neg C(\phi_1,..,\phi_n)(a,y,m) : m \in \theta(M^z) \} \text{ for some } b \\
+		\iff &  \{\neg C(\phi_1,..,\phi_n)(a,y,m) : m \in \theta(M^z) \} \text{ consistent } \\
+		\iff &  \{\neg C(\phi_1,..,\phi_n)(a,y,m) : m \in \theta(M^z) \} \text{ finitely consistent } \\
+		\iff & \forall k < \omega \forall m_1,..,m_k \in \theta(M^z) a \models \exists y \bigwedge_{j = 1,..,k} \neg C(\phi_1,..,\phi_n)(a,y,m_j) \\
+		\iff & \forall k < \omega \forall m_1,..,m_k \in \theta(M^z) a \not \models \forall y \bigvee_{j = 1,..,k} C(\phi_1,..,\phi_n)(a,y,m_j) \\
+		\iff & \forall k < \omega a \models R_{\forall y \bigvee_{j = 1,..,k} C(\phi_1,..,\phi_n)(x,y,z_j), \bigwedge_{j=1,..,k} \theta(z_j)}(x) \\
+		\iff & a \models q(x)
+	\end{align*}
+
+	where $q(x) := \{R_{\forall y \bigvee_{j = 1,..,k} C(\phi_1,..,\phi_n)(x,y,z_j), \bigwedge_{j=1,..,k} \theta(z_j)}(x) : k < \omega \} $.
+	Since $a$ is arbitrary, we have $q(x) \longleftrightarrow \exists y R_{C(\phi_1,..,\phi_n),\theta} (x,y)$.
+	By compactness, there must be $R_1,..,R_l \in q(x)$ such that $\bigwedge_{r=1,..,l} R_r(x) \longleftrightarrow \exists y R_{C(\phi_1,..,\phi_n),\theta} (x,y)$.
+	Since the theorem has already been proved for the conjunction case, we have that there must be $R' \in L_p$ such that 
+	$\bigwedge_{r=1,..,l} R_r(x) \longleftrightarrow R'(x)$. 
+	
+\end{proof}
+
+\end{document}
