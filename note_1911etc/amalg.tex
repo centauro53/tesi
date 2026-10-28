@@ -1,0 +1,51 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	The class of e.c. models of $\mathcal{T}$ admits amalgamation.
+
+\end{exercise}
+
+\begin{proof}
+
+	Let $f:A \to B$ and $g: A \to C$ maps between e.c. models of $\mathcal{T}$.
+	We want to find $D \models \mathcal{T}$ (not necessarily e.c. yet) such that there exist $h: B \to D$ and $l: C \to D$ witnessing amalgamation.
+	We just need to prove that the following type is consistent: 
+	\[
+		\mathcal{T} \cup at-tp(B) \cup at-tp(C)
+	\]
+
+	where elements of the form $f(a),g(a)$ are nominated as $a$.
+	This can be done because (since $A,B,C$ e.c.) $f,g,h,l$ embeddings so we can identify an element with its image.
+	Then taking $h(f(a)) = a^D = l(g(a))$ we will have amalgamation on $D$.
+	Then consider the direct limit construction to have $i: D \to E$.
+	This gives that $i \circ h$ and $i \circ l$ are the desired maps.
+	Now, by contradiction assume the above type is inconsistent.
+	Then it is finitely inconsistent. Let $\psi_1(b,a),..,\psi_n(b,a) \in at-tp(B)$ and $\theta(c,a),..,\theta(c,a) \in at-tp(C)$ with $b,c$ tuple of constants
+	different from those nominated by $A$,
+	such that 
+	\[
+		\mathcal{T} \cup \{\bigwedge_{i=1,..,n} \psi_i(b,a)\} \cup \{\bigwedge_{j=1,..,m} \theta_j(c,a) \}
+	\]
+	inconsistent.
+	This is the same as 
+	\[
+		\mathcal{T} \cup \{ \exists y \bigwedge_{i=1,..,n} \psi_i(y,a) \} \cup \{ \exists z \bigwedge_{j=1,..,m} \theta_j(z,a) \}
+	\]
+	inconsistent.
+	But by hypothesis $A$ is e.c. model of $\mathcal{T}$ and, 
+	as $B \models \exists y \bigwedge_{i=1,..,n} \psi(y,f(a))$ and $C \models \exists z \bigwedge_{j=1,..,m} \theta_j(z,g(a))$,
+	we have that $A$ is a model of the above type, contradiction.
+
+\end{proof}
+
+\end{document}
