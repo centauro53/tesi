@@ -1,0 +1,46 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{amsthm}
+
+\newtheorem{exercise}{Esercizio}
+
+\begin{document}
+
+\begin{exercise}
+
+	Let $|L| < \kappa$. Then there exists a $\kappa^+$-saturated model $M$ of $\mathcal{T}$ with $|M| < 2^{\kappa}$.
+
+\end{exercise}
+
+\begin{proof}
+
+	We will construct a chain $(M_\alpha : \alpha < \kappa^+)$, defined as follows:
+	\begin{itemize}
+		\item	Take $M_0$ to be any e.c. model of $\mathcal{T}$ with $|M_0| \leq \kappa$
+		\item	Take the union if limit
+		\item	To pass from $M_\alpha$ to $M_{\alpha +1}$ we need an auxiliary chain $(M_{\alpha,j}: j < 2^\kappa)$
+			and a dove-tail enumeration $e: 2^\kappa \to 2^\kappa \times 2^\kappa$:
+			\begin{itemize}
+				\item	Take $M_{\alpha,0} = M_\alpha$
+				\item	Take the union if limit
+				\item	To pass from $M_{\alpha,j}$ to $M_{\alpha,j+1}$ first enumerate the diagrams of the form $f: A \to B, i:A \to M_{\alpha,j}$
+					with $A$ e.c. model of $\mathcal{T}$ and $B \models \mathcal{T},|B| \leq \kappa$.
+					If $e(j) = (r,s)$ then consider the $r$-th diagram enumerated for $M_{\alpha,s}$.
+					Let such diagram be $f:A \to B,i:A \to M_{\alpha,s}$. Now consider $l: B \to B'$ be the direct limit construction.
+					Observe that modifying the construction using downward l.s. at each step one can require $|B'| \leq |B|$.
+					Now use amalgametion to get $N$ e.c. model of $\mathcal{T}$ and use downward l.s. to get $M \prec N$ with 
+					$M_{\alpha,s},B \subseteq M$ and $|M| \leq 2^\kappa$.
+					Use the direct limit construction to arrive to $M_{\alpha,s+1}$ (as observed above we can bound the cardinality with $2^\kappa$.
+			\end{itemize}
+	\end{itemize}
+
+	One can verify inductively that $\forall \alpha < \kappa^+ \forall j<2^\kappa |M_{\alpha,j}| < 2^{\kappa}$.
+	In particular this gives that $|M_{k^+}| \leq 2^\kappa$.
+	Since $\kappa^+$ regular we have saturation (every diagram to be checked must have been enumerated somewhere).
+
+\end{proof}
+
+\end{document}
