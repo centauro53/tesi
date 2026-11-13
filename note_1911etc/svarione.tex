@@ -1,0 +1,210 @@
+\documentclass[11pt,a4paper]{article}
+
+% ===================== Lingua e codifica =====================
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}   % usa [italian] se scrivi in italiano
+
+% ===================== Matematica =====================
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+
+% ===================== Layout =====================
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{parskip}           % opzionale: spazio tra paragrafi
+
+% ===================== Figure e tabelle =====================
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% ===================== Link e riferimenti =====================
+\usepackage[hidelinks]{hyperref}
+\usepackage{cleveref}          % va caricato DOPO hyperref e amsthm
+
+% ===================== Bibliografia =====================
+%\usepackage[backend=biber,style=alphabetic,sorting=nyt]{biblatex}
+%\addbibresource{bibliografia.bib}
+
+% ===================== Ambienti teorema =====================
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+
+% ===================== Operatori e macro =====================
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Ker}{ker}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\eps}{\varepsilon}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\abs}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\inner}[2]{\left\langle #1,\, #2 \right\rangle}
+\newcommand{\dd}{\,\mathrm{d}}          % differenziale: \int f(x)\dd x
+
+% ===================== Metadati =====================
+\title{Un titolo chiaro e specifico\\[2pt]
+       \large Un sottotitolo opzionale}
+\author{Nome Cognome\thanks{Università di ..., \texttt{email@example.com}}}
+\date{\today}
+
+% ===================== Documento =====================
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Riassunto di 100--250 parole: problema affrontato, approccio, risultato
+principale, perché è significativo. Evita citazioni e formule pesanti.
+\end{abstract}
+
+\tableofcontents   % utile solo per articoli lunghi; altrimenti rimuovi
+
+% ---------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+
+Contesto e stato dell'arte. Motivazione del problema. Enunciato
+\emph{informale} del risultato principale. Elenco dei contributi originali.
+
+\subsection{Motivation and background}
+\label{sec:motivation}
+
+\subsection{Main results}
+\label{sec:main-results-intro}
+
+\begin{theorem}[Versione informale, cfr.\ \cref{thm:main}]
+...
+\end{theorem}
+
+\subsection{Organization of the paper}
+La \cref{sec:prelim} richiama le nozioni di base; la \cref{sec:main}
+contiene i risultati principali; ...
+
+% ---------------------------------------------------------------
+\section{Preliminaries}
+\label{sec:prelim}
+
+Notazioni, definizioni e risultati noti (con citazioni, es.\
+\cite{esempio2024}). Fissa le convenzioni una volta per tutte.
+
+\begin{definition}\label{def:chiave}
+...
+\end{definition}
+
+% ---------------------------------------------------------------
+\section{Main results}
+\label{sec:main}
+
+\begin{theorem}
+...
+\end{theorem}
+
+\begin{proof}
+...
+\end{proof}
+
+\begin{lemma}\label{lem:aux}
+...
+\end{lemma}
+
+\begin{proof}[Proof of \cref{lem:aux}]
+...
+\end{proof}
+
+\begin{corollary}\label{cor:conseguenza}
+Segue da \cref{thm:main} e \cref{lem:aux} che \dots
+\end{corollary}
+
+% ---------------------------------------------------------------
+\section{Examples and applications}
+\label{sec:examples}
+
+Let's start by describing the typical situation.
+$L$ is a first order language, $T$ is a theory for $L$ with some properties: primitive universal, irreducible, often with Q.E.
+We want to study how external parameters leave a trace on a fixed model. One can prove that all results don't really depend on the fixed model, but only on $T$.
+Let $M \models T$. We can add to $L$ two sorts: $V$ and $P$, standing for variable sort and parameter sort respectively. 
+So, let's fix $M \models T$. 
+\begin{definition}
+	$S_x(M) = \{p(x) : \exists N \geq M \ \exists c \in N p(x) = tp_N(c/M)\}$.
+\end{definition}
+
+We will consider $\gamma = \{\phi_1,..,\phi_n \} \subseteq L$ a finite set of formulas in $L$ with the following two properties:
+\begin{enumerate}
+	\item	closed under boolean combinations
+	\item	for every $i = 1,..,n$ $\phi_i$ will be of the form $\phi_i(x;y)$ where $x$ is a single variable in the sort $P$, 
+		while $y$ is a vector of variables in the sort $V$   
+\end{enumerate}
+
+We denote with $L_y := \{\theta(y) : \theta(y) \in L\}$.
+
+Ideally, $V$ will be interpreted as $M$, while $P$ will be interpreted as the disjoint union of $N \models T$ such that $N \geq M$.
+So when considering $\phi(x;y) \in \gamma$, $\phi(c,V)$ is the trace that $c$ leaves on $M$ through $\phi$; more explicitly $\{m \in M : N \models \phi(c,m)\}$.
+Such traces are definable using external parameters (namely $c$ in the above case) but may not be definable in $M$ using quantifier free formulas without parameters.
+This depends on $c$; we are interested in those $c$ that leave a trace as close as possible to be definable.
+The meaning of the last sentence is explained in what follows.
+
+\begin{example}\label{ex:uno}
+For example consider the case $L = \{<\}, T = T_{dlo}, \gamma = \{x < y, x \leq y, x > y, x \geq y\}, M = \mathbb{Q}$.
+Let $N=\mathbb{R} \times 3$ and let $\forall a,b,c \in \mathbb{Q} (a,0) < (b,1) < (c,2)$.
+Embed $M$ in $N$ as $\mathbb{Q} \times {1}$. Then the $\gamma$-traces left by $(0,0),(0,2)$ are definable by q.f. formulas without parameters, while those left by $(\sqrt{2},1)$ are not.
+Now observe that for every $\theta(y) \in L$ and $\phi(x,y) \in \gamma$ 
+\[
+	N \models \forall y \ (\theta(y) \to \phi(c,y)) \iff S_{\gamma}(M) \models \mathcal{R}_{\neg \phi(x,y),\theta(y)}(tp_N(c/M))
+\]
+
+Since $T_{dlo}$ has Q.E. and every two elements have the same atomic type, we will always have $\theta(M) = M$ or $\theta(M) = \emptyset$, so we can omit $\theta$.
+Consider the atomic type $\{R_{x < y}\}(z)$. It is immediate that this type is maximal since it determines every trace of every $\phi(x,y) \in \gamma$.
+So there must be an element $a_{\infty} \in \mathcal{J}$ such that $\mathcal{J} \models R_{x < y}(a_{\infty})$.
+$\mathcal{J}$ embeds in $S_{\gamma}(M)$ but since every trace is determined, the image of $a_{\infty}$ is determined.
+In particular there cannot be two elements in $\mathcal{J}$ that model $\mathcal{R}_{x < y}$.
+So we have $\mathcal{J} = \{a_{\infty}, a_{-\infty}\}$.
+
+\end{example}
+
+The above example is extreme, in the sense that the trace were definable or not definable without nothing between. 
+In general this is not the case as the following example shows. This should illustrate even better what 'as close to be definable as possible' means.
+Suppose that $\mathcal{J} \models \mathcal{R}_{\phi(x;y),\theta(y)}(a) \land \mathcal{R}_{\neg \phi(x;y), \eta(y)}(a)$ and let $f,g: \mathcal{J} \to S_{\gamma}(M)$ embeddings.
+Now, $f(a)$ and $g(a)$ may be very different types, but they agree that their trace for $\phi(x,y)$ will contain $\eta(M)$ and will be disjoint from $\theta(M)$.
+Since $a \in \mathcal{J}$ we know that its atomic type is maximal, which amounts to saying that $f(a)$ and $g(a)$ will differ as little as possible.
+
+% ---------------------------------------------------------------
+\section{Discussion and open problems}
+\label{sec:discussion}
+
+Limiti dell'approccio, possibili estensioni, domande aperte.
+
+% ---------------------------------------------------------------
+\section*{Acknowledgements}
+Ringrazio \dots
+
+% ---------------------------------------------------------------
+%\printbibliography
+
+% ---------------------------------------------------------------
+\appendix
+\section{Technical proofs}
+\label{app:proofs}
+
+Dimostrazioni lunghe o tecniche spostate qui.
+
+\end{document}
