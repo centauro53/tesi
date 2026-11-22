@@ -1,0 +1,97 @@
+\documentclass[../main.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Ellis group}
+\label{ch:Ellis}
+
+In this chapter we evaluate the Ellis group for some theories. Note in particular that the evaluation does not depend on the chosen model, as theorem ... holds.
+The typical setting is the following:
+\begin{itemize}
+	\item	$L$ is a f.o.l. %finite?
+	\item	$T$ is a complete theory for $L$ with Q.E. and countable models.
+	\item	$M$ is a model of $T$. We want to evaluate $E_M$, the associated Ellis group.
+	\item	$N$ is a $|M|^+$-saturated elementary extension of $M$.
+	\item	$x,y$ are countable tuples of variables.
+	\item	$\gamma \subseteq L$ is a set of formulas of the form $\phi(x;y)$, closed under boolean combinations.
+		We also assume $L_y \subseteq \gamma$ 
+		(This request is needed to have $p(y) \supseteq tp(m/\emptyset)$ in duality theorem). 
+		%\gamma should be finite?
+		%This is possible because $|L| < \omega$ and $T$ has Q.E.
+
+	\item	We will denote, for every $n \in N^x$, $(n)_{\gamma,M} := \{a \in N^x : a \equiv_{\gamma,M} n\}$. Note that $N/\equiv_{\gamma,M} \cong S_x(M)$.
+		Since $\gamma$ will always be fixed, at some point we will just omit it.
+	\item	$\alpha(y)$ is a finitary type, meaning: a parameter free, complete type in which only a finite number of variables from $y$ actually appear.
+	\item	Given $\phi_1(x;y),..,\phi_n(x;y) \in \gamma$ and a finitary type $\alpha(y)$, the couple $t = (\phi_1(x;y),..,\phi_n(x;y);\alpha(y))$ is called a pattern. 
+	\item	$\LLang$ is the extended pattern language as described in Appendix A, that is: $\LLang = \{\R_t : t \text{ is a pattern}\}$.
+		Recall that $S_\gamma(M)$ is the $\LLang$ structure whose domain is $N^x / \equiv_{\gamma,M}$ and such that 
+		\[
+			S_\gamma(M) \models \R_t((a_1)_{\gamma,M},..,(a_n)_{\gamma,M}) \iff \neg \exists b \in \alpha(M^y) (N \models \bigwedge_{i=1,..,n} \phi_i(a_i,b))
+		\]
+	\item	$\JJ$ is the associated universal e.c. model.
+	\item	$\U$ is a monster model for $T$.
+	\item	$\nonfork$ will always mean strong coheir (see --definition below--). This is needed to have --duality--.
+	\item	Given $a,b$ tuples in $\U$ we will write $a \equiv y \nonfork_M b$ for the conjunction of the types $a \equiv y$ and $y \nonfork_M b$.
+		Consequently $a \equiv \U^y \nonfork_M b$ stands for the set of realizations in $\U$. Informally we call such realizations independent sequences.
+\end{itemize}
+
+The strategy used for the evaluation relies on the following results:
+\begin{enumerate}
+	\item	--theorem section below-- gives a duality between $\HSS$ and independent sequences. 
+		In most of the cases it is easier to determine the latter.
+	\item	At this point assume we know $Hom(S,S)$. We look for the most non-injective morphisms.
+		Let $g \in \HSS$ be such a morphism and let $f: \mathcal{\JJ} \to S$ be an embedding (such $f$ exists by theorem ..).
+		Then $g \circ f: \JJ \to S$ must be an embedding (by theorem ..) so in particular must be injective.
+		Let $p,q \in S$ such that $g(p) = g(q)$. Then it can't be $p,q \in ran(f)$.
+	\item	From the previous point one has some incompatibilities between types.
+		Combined with theorem .. stating that only maximal types survive in $\mathcal{J}$, usually this is enough to compute $\JJ$.
+	\item	From theorem .. we know $E_M \cong Aut(\JJ)$.
+\end{enumerate}
+
+For a first example of this strategy see --link example empty language-- which can be considered in some sense a tutorial.
+
+\section{Duality}
+\label{sec:duality}
+
+Enunciare e dimostrare dualità con nozione di strong coheir.
+
+
+--duality Hrushovski-- establishes a duality between morphisms and coheirs.
+In this section we prove that the same result holds for the richer version of the pattern language if we replace coheirs with finitary coheirs.
+
+\begin{definition}
+	We say that $tp(c/N)$ is a $\gamma$-finitary coheir of $tp(c/M)$ if for every $\phi(x;y) \in \gamma, n \in N^x, \alpha(y)$ finitary type we have
+	\[
+		c \models \phi(n,y) \land \alpha(y) \Rightarrow m \models \phi(n,y) \land \alpha(y) 
+	\]
+	We write $c \nonfork_{\gamma, M} N$.
+\end{definition}
+
+Note that finitary coheir implies coheir when we restrict to $\gamma$, as $N \supseteq M$.
+
+\begin{theorem}
+
+	Let $B$ countable model of $T$ and let $b$ enumeration of $B$.
+	Then there exists a one to one correspondence between $H := \{h: S_{\gamma}(M) \to S_{\gamma}(B) : h \ \LLang-morphism\}$ and $C := (b \equiv \U \nonfork_M N)/\equiv_{\phi,M}$.
+	The correspondence is given by:
+	\begin{align*}
+		f: H \to C, h \mapsto (c)_{\gamma,M} & \text{ with }c \models \phi(m,y) \iff h(m) \models \phi(x,b) \\
+		g: C \to H, (c)_{\gamma,M} \mapsto h & \text{ with }h((n)_{\gamma,M}) \models \phi(x,b) \iff c \models \phi(n,y)
+	\end{align*}
+
+\end{theorem}
+
+\begin{example}
+	esempio linguaggio vuoto, teoria degli insiemi infiniti
+\end{example}
+
+\begin{example}
+	esempio linguaggio <, teoria dlo
+\end{example}
+
+\begin{example}
+	esempio teoria acf
+\end{example}
+
+
+\end{document}

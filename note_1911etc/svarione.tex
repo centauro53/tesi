@@ -61,6 +61,9 @@
 \newcommand{\inner}[2]{\left\langle #1,\, #2 \right\rangle}
 \newcommand{\dd}{\,\mathrm{d}}          % differenziale: \int f(x)\dd x
 
+
+\def\nonfork{\mathop{\raise0.2ex\hbox{\ooalign{\hidewidth$\vert$\hidewidth\cr\raise-0.9ex\hbox{$\smile$}}}}}
+
 % ===================== Metadati =====================
 \title{Un titolo chiaro e specifico\\[2pt]
        \large Un sottotitolo opzionale}
@@ -186,6 +189,69 @@ In general this is not the case as the following example shows. This should illu
 Suppose that $\mathcal{J} \models \mathcal{R}_{\phi(x;y),\theta(y)}(a) \land \mathcal{R}_{\neg \phi(x;y), \eta(y)}(a)$ and let $f,g: \mathcal{J} \to S_{\gamma}(M)$ embeddings.
 Now, $f(a)$ and $g(a)$ may be very different types, but they agree that their trace for $\phi(x,y)$ will contain $\eta(M)$ and will be disjoint from $\theta(M)$.
 Since $a \in \mathcal{J}$ we know that its atomic type is maximal, which amounts to saying that $f(a)$ and $g(a)$ will differ as little as possible.
+
+
+\section{Ellis group}
+In this section we will work in the following setting:
+\begin{itemize}
+	\item	$L$ is a fol (possibly after morleyzation?)
+	\item	$T$ is a theory in the language $L$. (We assume $T$ model complete? axiomatizes e.c. models?)
+	\item	$y$ is a finite tuple of variables, $x$ is a countable tuple of variables.
+	\item	$\gamma = \{ \phi_1(x;y),..,\phi_n(x;y) \}$ is a finite set of formulas in $L$ (closed under boolean combinations?)
+	\item	$\alpha(y)$ is a complete type
+	\item	$t$ will denote $(\phi_1,..,\phi_k;\alpha)$ where $\phi_1,..,\phi_k \in \gamma$ and $\alpha$ complete type.
+	\item	$M$ is a model of $T$
+	\item	We will focus on a fixed $\gamma$ and write $S = S_{\gamma}(M)$
+	\item	$\mathcal{\overline{L}} = \{ \mathcal{R}^S_{\phi_1,..,\phi_k;\alpha}: \exists \gamma \forall i = 1,..,k \ \phi_i(x;y) \in \gamma , S= S_{\gamma}, \alpha \text{ complete type }\}$
+	\item	$\mathcal{R}^S_{\phi_1,..,\phi_k;\alpha}$ will run in the sort $S_\gamma$ if $\forall i=1,..,k \ \phi_i(x;y) \in \gamma$ and will be interpreted in the usual way.
+\end{itemize}
+
+\begin{theorem}
+	
+	Let $R^S_t \in \mathcal{\overline{L}}$ with $t = (\phi_1,..,\phi_n; \alpha)$. This defines a closed set of $S$ (considered with the Stone topology).
+	
+\end{theorem}
+
+\begin{proof}
+
+	In fact one can write it as a type, using elements of $M$ as parameters.
+
+\end{proof}
+
+
+Hrushovski's lemma A.1 basically states that: if $M$ is saturated enough, then the Ellis semigroup coincides with the closure of $Aut(M)$ in $Hom_{\mathcal{\overline{L}}}(S,S)$.
+
+Now let $r: S \to \mathcal{J}$ be retraction. We claim that, according to the notation of "Creche course":
+\begin{itemize}
+	\item	$Hom_{\mathcal{\overline{L}}}$(S,S) is idempotent semigroup (Ellis semigroup). Let's call its dual $\mathcal{C}$.
+	\item	$\mathcal{C} * r$ is a minimal left ideal. Let's denote it $\mathcal{I}$.
+	\item	$r$ is in particular an idempotent element of $\mathcal{I}$.
+	\item	$*$ plays the role of composition (by duality).
+	\item	$r * \mathcal{I}$ is the Ellis group. Let's denote it $E$.
+	\item	$E \cong Aut(\mathcal{\overline{J}})$.
+\end{itemize}
+
+Before proceeding to the proof, we collect here some observations/questions:
+\begin{itemize}
+	\item	Let $f \in Hom_{\mathcal{\overline{L}}}$. By duality this corresponds to an extension of $tp(M/\emptyset)$ to a complete type with parameters in $M$, such that finitely satisfiable in $M$.
+		Those types are realized in some monster model $\mathcal{U}$. The subset of these realizations is $\mathcal{C}$ and can be expressed by the type $M \equiv_{\emptyset} x \nonfork_M \emptyset$.
+	\item	We assume $\nonfork_M$ stationary.
+	\item	At this point we would like to find a definition of $a \cdot b$ such that:
+		\begin{enumerate}
+			\item	it is definable in the language $L$.	
+			\item	$a * b = (a \cdot b)_S$
+			\item	$f_{a * b} = f_a \circ f_b$
+		\end{enumerate}
+	\item	$\{u \in \mathcal{I} : u \in \mathcal{I} idempotent\}$ is a partition of $\mathcal{I}$. Are retractions all possible idempotents?
+	\item	Basically $r * \mathcal{I}$ results a group because its elements are of the form $S \to S \to S \to S$, 
+		where the map in the middle is some extension of an automorphism of $\mathcal{J}$ while those at the ends are idempotent, identity when restricted to $\mathcal{J}$
+\end{itemize}
+
+\begin{proof}
+
+	hgdfahghò
+\end{proof}
+
 
 % ---------------------------------------------------------------
 \section{Discussion and open problems}

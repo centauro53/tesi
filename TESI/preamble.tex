@@ -1,0 +1,59 @@
+% preamble.tex
+
+% --- Pacchetti Fondamentali ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage{amsmath, amssymb, amsthm} % Ambienti matematici
+\usepackage{mathrsfs} % Per il corsivo calligrafico (\mathscr)
+\usepackage{mathtools} % Estensioni per amsmath
+\usepackage{geometry}
+\geometry{a4paper, top=3cm, bottom=3cm, left=3.5cm, right=2.5cm}
+\usepackage{microtype}
+
+% --- Gestione dei Subfiles ---
+\usepackage{subfiles}
+
+% --- Bibliografia (con biblatex) ---
+\usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
+\addbibresource{references.bib}
+
+% --- Collegamenti Ipertestuali ---
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
+
+% --- Ambiente per Teoremi e Dimostrazioni ---
+% Stile "plain" per i risultati principali
+\theoremstyle{plain}
+\newtheorem{theorem}{Teorema}[chapter]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollario}
+\newtheorem{proposition}[theorem]{Proposizione}
+
+% Stile "definition" per definizioni ed esempi
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definizione}
+\newtheorem{example}[theorem]{Esempio}
+\newtheorem{exercise}[theorem]{Esercizio}
+
+% Stile "remark" per osservazioni e note (non numerati)
+\theoremstyle{remark}
+\newtheorem*{remark}{Osservazione}
+\newtheorem*{notation}{Notazione}
+\newtheorem*{abuse}{Abuso di notazione}
+
+% comandi personalizzati
+\newcommand{\J}{\mathcal{J}}
+\newcommand{\JJ}{\mathcal{\overline{J}}}
+\newcommand{\U}{\mathcal{U}}
+\newcommand{\R}{\mathcal{R}}
+\newcommand{\HSS}{Hom(S_x(M),S_x(M))}
+\newcommand{\SxM}{S_x(M)}
+\newcommand{\Lang}{\mathcal{L}}
+\newcommand{\LLang}{\overline{\Lang}}
+\newcommand{\nonfork}{%
+  \mathop{\raise0.2ex\hbox{%
+    \ooalign{\hidewidth$\vert$\hidewidth\cr
+             \raise-0.9ex\hbox{$\smile$}}}}%
+}
+

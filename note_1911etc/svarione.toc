@@ -6,5 +6,6 @@
 \contentsline {section}{\numberline {2}Preliminaries}{2}{section.2}%
 \contentsline {section}{\numberline {3}Main results}{2}{section.3}%
 \contentsline {section}{\numberline {4}Examples and applications}{2}{section.4}%
-\contentsline {section}{\numberline {5}Discussion and open problems}{3}{section.5}%
-\contentsline {section}{\numberline {A}Technical proofs}{3}{appendix.A}%
+\contentsline {section}{\numberline {5}Ellis group}{3}{section.5}%
+\contentsline {section}{\numberline {6}Discussion and open problems}{4}{section.6}%
+\contentsline {section}{\numberline {A}Technical proofs}{4}{appendix.A}%

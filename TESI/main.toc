@@ -1,0 +1,5 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivazioni e Contesto}{1}{section.1.1}%
+\contentsline {chapter}{\numberline {2}Ellis group}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Duality}{3}{section.2.1}%

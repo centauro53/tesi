@@ -1,0 +1,49 @@
+% main.tex
+\documentclass[12pt, a4paper, oneside]{book}
+
+% Inclusione del preambolo con pacchetti e comandi personalizzati
+\input{preamble}
+
+\begin{document}
+
+% --- Frontespizio ---
+\begin{titlepage}
+    \centering
+    {\Large \textbf{University Name}}\\[0.5cm]
+    {\large Department of Mathematics}\\[2cm]
+
+    {\Large \textbf{Master's Thesis in Mathematics}}\\[3cm]
+
+    {\Huge \textbf{Thesis Title}}\\[2cm]
+    {\Large \textit{An Investigation into Models and Their Properties}}\\[3cm]
+
+    \begin{flushleft}
+        \textbf{Supervisor:} \\ Prof. Supervisor Name
+    \end{flushleft}
+    \vfill
+    \begin{flushright}
+        \textbf{Candidate:} \\ Your Name \\ Student ID: 123456
+    \end{flushright}
+
+    \vfill
+    {\large Academic Year 2025/2026}
+\end{titlepage}
+
+
+% --- Pagine Preliminari ---
+\frontmatter % Numerazione romana per indice, abstract, etc.
+\tableofcontents
+
+% --- Corpo della Tesi ---
+\mainmatter % Numerazione araba per i capitoli
+
+% Inclusione dei capitoli tramite il pacchetto subfiles
+\subfile{chapters/introduction}
+\subfile{chapters/Ellis}
+% ... aggiungi qui altri capitoli
+
+% --- Bibliografia ---
+\backmatter
+\printbibliography[heading=bibintoc, title={Bibliografia}]
+
+\end{document}
