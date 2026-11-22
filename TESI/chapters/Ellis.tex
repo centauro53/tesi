@@ -19,7 +19,7 @@ The typical setting is the following:
 		%\gamma should be finite?
 		%This is possible because $|L| < \omega$ and $T$ has Q.E.
 
-	\item	We will denote, for every $n \in N^x$, $(n)_{\gamma,M} := \{a \in N^x : a \equiv_{\gamma,M} n\}$. Note that $N/\equiv_{\gamma,M} \cong S_x(M)$.
+	\item	We will denote, for every $n \in N^x$, $(n)_{\gamma,M} := \{a \in N^x : a \equiv_{\gamma,M} n\}$. Note that $N/\equiv_{\gamma,M} \cong S_{\gamma}(M)$.
 		Since $\gamma$ will always be fixed, at some point we will just omit it.
 	\item	$\alpha(y)$ is a finitary type, meaning: a parameter free, complete type in which only a finite number of variables from $y$ actually appear.
 	\item	Given $\phi_1(x;y),..,\phi_n(x;y) \in \gamma$ and a finitary type $\alpha(y)$, the couple $t = (\phi_1(x;y),..,\phi_n(x;y);\alpha(y))$ is called a pattern. 
@@ -32,7 +32,9 @@ The typical setting is the following:
 	\item	$\U$ is a monster model for $T$.
 	\item	$\nonfork$ will always mean strong coheir (see --definition below--). This is needed to have --duality--.
 	\item	Given $a,b$ tuples in $\U$ we will write $a \equiv y \nonfork_M b$ for the conjunction of the types $a \equiv y$ and $y \nonfork_M b$.
-		Consequently $a \equiv \U^y \nonfork_M b$ stands for the set of realizations in $\U$. Informally we call such realizations independent sequences.
+		Consequently $a \equiv \U^y \nonfork_M b$ stands for the set of realizations in $\U$. 
+		Such a set is usually denoted with the letter $C$ and corresponds to the Ellis semigroup.  
+		Informally we call such realizations independent sequences.
 \end{itemize}
 
 The strategy used for the evaluation relies on the following results:
@@ -72,17 +74,119 @@ Note that finitary coheir implies coheir when we restrict to $\gamma$, as $N \su
 \begin{theorem}
 
 	Let $B$ countable model of $T$ and let $b$ enumeration of $B$.
-	Then there exists a one to one correspondence between $H := \{h: S_{\gamma}(M) \to S_{\gamma}(B) : h \ \LLang-morphism\}$ and $C := (b \equiv \U \nonfork_M N)/\equiv_{\phi,M}$.
+	Then there exists a one to one correspondence between $H := \{h: S_{\gamma}(M) \to S_{\gamma}(B) : h \ \LLang-morphism\}$ and $C := (b \equiv \U \nonfork_M N)/\equiv_{\phi,N}$.
 	The correspondence is given by:
 	\begin{align*}
-		f: H \to C, h \mapsto (c)_{\gamma,M} & \text{ with }c \models \phi(m,y) \iff h(m) \models \phi(x,b) \\
-		g: C \to H, (c)_{\gamma,M} \mapsto h & \text{ with }h((n)_{\gamma,M}) \models \phi(x,b) \iff c \models \phi(n,y)
+		f: H \to C, h \mapsto (c)_{\gamma,M} & \text{ with } \forall \phi(x;y) \in \gamma \forall n \in N^x \ c \models \phi(n,y) \iff h(n) \models \phi(x,b) \\
+		g: C \to H, (c)_{\gamma,M} \mapsto h & \text{ with } \forall \phi(x;y) \in \gamma \forall n \in N^x \ h((n)_{\gamma,M}) \models \phi(x,b) \iff c \models \phi(n,y)
 	\end{align*}
 
 \end{theorem}
 
+
+\begin{proof}
+
+	We prove that the maps are well defined and each is the inverse of the other.
+	\begin{enumerate}
+		\item	$f$ well defined:
+			\begin{itemize}
+				\item	It is clear that $f$ is a functional relation.
+				\item	Let $h \in H$. We prove that there exists $c$ such that $c \in f(h)$. We just need to prove that 
+					$\{\phi(n,y) : \phi(x;y) \in \gamma, n \in N^x, \U \models \phi(h(n),b)\}$ is finitely consistent. 
+					So fix $\phi_1(n_1,y),..,\phi_k(n_k,y)$ in the type. Then $\U \models \bigwedge_{i=1,..,k} \phi(h(n_i),b)$. 
+					This means $S_{\gamma}(B) \not \models \R_{(\phi_1,..,\phi_k)}(h(n_1),..,h(n_k))$.
+					Since $h \in H$ we have $S_{\gamma}(M) \not \models \R_{(\phi_1,..,\phi_k)}((n_1),..,(n_k))$.
+					Then there exists $m \in M^y$ such that $\U \models \bigwedge_{i=1,..,k} \phi(n_i,m)$.
+
+				\item	Let $(c) = f(h)$. We prove that $c \in C$:
+					\begin{itemize}
+						\item	We prove $c \equiv b$: this is immediate as $L_y \subseteq \gamma$.
+						\item	We prove $c \nonfork_{\gamma,M} N$. Let $\U \models \bigwedge_{i = 1,..,k} \phi_i(n_i,c) \land \alpha(c)$.
+							By contradiction, assume $S_{\gamma}(M) \models \R_{(\phi_1,..,\phi_k ; \alpha)}((n_1),..,(n_k))$.
+							Then $S_{\gamma}(B) \models \R_{(\phi_1,..,\phi_k; \alpha)}(h(n_1),..,h(n_k))$.
+							But $\U \models \alpha(c) \land \bigwedge_{i = 1,..,k} \phi_i(n_i,c)$ means that
+							$\U \models \alpha(b) \land \bigwedge_{i=1,..,k} \phi(h(n_i),c)$.
+							Therefore $b$ witnesses $S_{\gamma}(B) \models \R_{(\phi_1,..,\phi_k ; \alpha)}(h(n_1),..,h(n_k))$.
+
+					\end{itemize}
+			\end{itemize}
+		\item	$g$ well defined:
+			\begin{itemize}
+				\item	It is clear that $g$ is a functional relation
+				\item	Let $c,d$ such that $(c) = (d) \in C$. Then $c \models \phi(n,y) \iff d \models \phi(n,y)$.
+					This implies that $g((c)) = g((d))$.
+				\item	Let $(c) \in C$. We want to prove $h := g((c)) \in H$:
+					\begin{itemize}
+						\item	$h$ functional relation. This is clear by definition.
+						\item	Let $n \in N^x$. We want to show $h((n)) = \gamma-tp(l/b)$ for some $l \in \U^x$. 
+							Maximality is clear but we have to prove consistency.
+							Let $\phi_1(x,b),..,\phi_k(x,b) \in h((n))$. 
+							Then $\forall n' \equiv_{\gamma,M} n \ \U \models \bigwedge_{i=1,..,k} \phi_i(n',c)$.
+							In particular $\U \models \exists x \bigwedge_{i=1,..,k} \phi_i(x,c)$.
+							Since $c \equiv b$ we also have $\U \models \exists x \bigwedge_{i=1,..,k} \phi_i(x,b)$.
+							This proves finite consistency, therefore consistency.
+						\item	$h$ $\LLang$-morphism.
+							Assume $S_{\gamma}(M) \models \R_{(\phi_1,..,\phi_k; \alpha)}((n_1),..,(n_k))$ and let $\forall i = 1,..,k (l_i) = h((n_i))$.
+							By contradiction let $S_{\gamma}(B) \models \neg \R_{(\phi_1,..,\phi_k;\alpha)}((l_1),..,(l_k))$.
+							Then $b \models \alpha(y) \land \bigwedge_{i = 1,..,k} \phi_i(l_i,y)$.
+							Then $c \models \alpha(y) \land \bigwedge_{i = 1,..,k} \phi_i(n_i,y)$.
+							Since $c \nonfork_M N$ we have that the same holds for some $m \in M^y$, contradiction.
+						\item	Let $n_1,n_2 \in N^x$ such that $(n_1) = (n_2)$. We want to prove that $c \models \phi(n_1,y) \iff c \models \phi(n_2,y)$.
+							This follows trivially from $n_1 \equiv_{\gamma,M} n_2$ and $c \nonfork_{\gamma,M} N$.
+					\end{itemize}
+			\end{itemize}
+
+		\item	$f \circ g = Id$: let $(c) \in C$ and let $h = g((c)), c' = f(h)$. We want to prove that $(c) = (c')$.
+			Observe that $\U \models \phi(n,c') \iff \U \models \phi(h(n),b) \iff \U \models \phi(n,c)$.
+
+		\item	$g \circ f = Id$: let $h \in H$ and let $c = f(h), h' = g(c)$. We want to prove that $h = h'$.
+			Let $n \in N$ and let $(l) = h(n), (l') = h'(n)$. We want $l \equiv_{\gamma,b} l'$.
+			Observe that $\U \models \phi(l',b) \iff \U \models \phi(n,c) \iff \U \models \phi(l,b)$.
+
+	\end{enumerate}
+\end{proof}
+
+
 \begin{example}
 	esempio linguaggio vuoto, teoria degli insiemi infiniti
+
+	Let $L$ be the empty language (that is: we only allow equality as atomic formulas) and let $T$ be the theory axiomatizing infinite models.
+	It is easy to see that $T$ is a complete theory with Q.E. and admitting countable models.
+	Let $M$ be such a model and let $\gamma = L_{x;y}$. Let $b$ enumeration of $M$. Let $N$ be an $|M|^+$-saturated elementary extension of $M$.
+	\begin{enumerate}
+		\item	We calculate $C := b \equiv \U^x \nonfork_M N$. Let $(c) \in C$ and observe that it must be $|c| = |M| = \omega$.
+			So we can enumerate $c = (c_i : i < \omega)$. Furthermore observe that $\forall i < \omega \ c_i \not \in N \setminus M$ 
+			because otherwise the property of finitary coheir would fail.
+			We claim that $C = \{(c): |c| = \omega, c \cap (N \setminus M) = \emptyset, c \text{ lists without repetition}\}$.
+			From the above observation it is clear that $\subseteq$ holds, so we are left with $\supseteq$.
+			Consider $c$ from r.h.s. and observe that $(c)_{\gamma,N}$ consists of the countable sequences $d$ such that:
+			\begin{itemize}
+				\item	if $c_i \not \in N$ then $d_i \not \in N$.
+				\item	if $c_i = n \in N$ then $d_i \in N$.
+			\end{itemize}
+			It is clear that $m \equiv c$ holds, as $\gamma-tp(b/\emptyset)$ only expresses being countable and listing without repetition.
+			Now let $c \models \alpha(y) \land \bigwedge_{i=1,..,k} \phi_i(y,n)$. Assume $y_1,..,y_r$ includes all variables actually occurring.
+			It is enough showing that there exists some $m \in M^r$ such that $m \models \gamma-tp(c_1,..,c_r/n)$.
+			Observe that by back and forth $\gamma-tp(c_1,..,c_r/n)$ can only express one of the two options:
+			\begin{itemize}
+				\item	$y_i$ is one of the elements listed by $n$ and specifies which one.
+				\item	$y_i$ is none of the elements listed by $n$.
+			\end{itemize}
+			In the first case $c_i$ had to be one of the elements listed by $n$. As $c \cap (N \setminus M) = \emptyset$, it must be $c_i \in M$.
+			Therefore just take $m_i = c_i$.
+			In the second case take any $m_i \in M$ different from every element listed by $n$. Such an element of $M$ exists because $M$ infinite, $n$ finite.
+		
+		\item	Knowing $C$ allows us to calculate $\HSS$ using --duality theorem--.
+			Let $(c) \in C$ such that $c \cap N = \emptyset$ and let $h$ be its dual.
+			Fix any $n \in N^x$. Then it must be $\U \models n_i \not = c_j$ for every $i,j < \omega$.
+			Let $(l) = h((n))$. Then $\U \models l_i \not = b_j$ for every $i,j < \omega$.
+			Since $b$ enumerates $M$, this is the same as $l \cap M = \emptyset$. 
+			Note that this is a complete type: $\gamma-tp(l/b) = \{l_i \not = m : m \in M, i < \omega\}$, equivalent to $l \cap M = \emptyset$.
+			Since $n$ was arbitrary we conclude that $ran(h) = \{(l)\}$.
+
+		\item	Let $j: \JJ \to S_{\gamma}(M)$ any embedding. Then $h \circ j: \JJ \to S_{\gamma}(M)$ embedding, therefore $|\JJ| \leq 1$. 
+			Since $\JJ \not = \emptyset$, we conclude $E_M = Aut(\JJ) = 1$	
+	\end{enumerate}
 \end{example}
 
 \begin{example}

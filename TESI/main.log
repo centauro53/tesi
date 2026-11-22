@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.10.8)  22 NOV 2026 01:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Debian) (preloaded format=pdflatex 2026.10.8)  22 NOV 2026 19:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -808,7 +808,29 @@ Package babel Info: Main language set to 'english'.
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/enc/
-dvips/cm-super/cm-super-t1.enc}] (./main.toc)
+dvips/cm-super/cm-super-t1.enc}] (./main.toc
+LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 3.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
+File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
+))
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -829,31 +851,26 @@ l.5 \chapter
 
 ]
 Chapter 2.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 11.
+[2
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+msb on input line 11.
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
+Overfull \hbox (21.2424pt too wide) detected at line 82
+[]
+ []
 
+[3]
+Overfull \hbox (52.76953pt too wide) in paragraph at lines 128--134
+\OMS/cmsy/m/n/12 8\OML/cmm/m/it/12 i \OT1/cmr/m/n/12 (-20) = 1\OML/cmm/m/it/12 
+; ::; k\OT1/cmr/m/n/12 (-20) (\OML/cmm/m/it/12 l[]\OT1/cmr/m/n/12 (-20) ) = \OM
+L/cmm/m/it/12 h\OT1/cmr/m/n/12 (-20) ((\OML/cmm/m/it/12 n[]\OT1/cmr/m/n/12 (-20
+) ))$\T1/cmr/m/n/12 (-20) . By con-tra-dic-tion let $\OML/cmm/m/it/12 S[]\OT1/c
+mr/m/n/12 (-20) (\OML/cmm/m/it/12 B\OT1/cmr/m/n/12 (-20) ) \OMS/cmsy/m/n/12 j[]
+\OT1/cmr/m/n/12 (-20) = \OMS/cmsy/m/n/12 :R[]\OT1/cmr/m/n/12 (-20) ((\OML/cmm/m
+/it/12 l[]\OT1/cmr/m/n/12 (-20) )\OML/cmm/m/it/12 ; ::; \OT1/cmr/m/n/12 (-20) (
+\OML/cmm/m/it/12 l[]\OT1/cmr/m/n/12 (-20) ))$\T1/cmr/m/n/12 (-20) .
+ []
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-(/usr/share/texlive/texmf-dist/tex/latex/microtype/mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-)
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 11
-.
-
-(/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
-File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
-) [2
-
-{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [3]) [4]
+[4]) [5]
 
 LaTeX Warning: Empty bibliography on input line 47.
 
@@ -862,46 +879,39 @@ LaTeX Warning: Empty bibliography on input line 47.
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-08-10>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: 7C2B67BA92D92381E658CE23E7C364FB;374
-(rerunfilecheck)             After:  AD1914227EDBD49459972F2C2F948B16;463.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: AD1914227EDBD49459972F2C2F948B16;463.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22413 strings out of 469089
- 390958 string characters out of 5459374
- 1295123 words of memory out of 5000000
- 51096 multiletter control sequences out of 15000+600000
- 647236 words of font info for 125 fonts, out of 8000000 for 9000
+ 22437 strings out of 469089
+ 391194 string characters out of 5459374
+ 1300159 words of memory out of 5000000
+ 51099 multiletter control sequences out of 15000+600000
+ 647717 words of font info for 134 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 67i,10n,70p,1001b,2121s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 67i,10n,70p,1001b,2240s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf/fonts/type1/public/c
-m-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb
-></usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/f
-onts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm
--super/sfrm1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb>
-</usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fo
-nts/type1/public/cm-super/sfti1728.pfb>
-Output written on main.pdf (6 pages, 210281 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb><
+/usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf/fon
+ts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-s
+uper/sfrm1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb></
+usr/share/texmf/fonts/type1/public/cm-super/sfsl1200.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfti1728.pfb>
+Output written on main.pdf (7 pages, 253258 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 98 compressed objects within 1 object stream
- 21 named destinations out of 1000 (max. 500000)
- 36889 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 173 PDF objects out of 1000 (max. 8388607)
+ 127 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 36897 words of extra memory for PDF output out of 42996 (max. 10000000)
 
