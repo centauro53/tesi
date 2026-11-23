@@ -146,6 +146,8 @@ Note that finitary coheir implies coheir when we restrict to $\gamma$, as $N \su
 	\end{enumerate}
 \end{proof}
 
+It may be worth noting that in the following examples finitary types are expressible by a single formula without parameters, so the notion of coheir and finitary coheir coincide.
+This implies that $\J = \JJ$.
 
 \begin{example}
 	esempio linguaggio vuoto, teoria degli insiemi infiniti
@@ -191,11 +193,49 @@ Note that finitary coheir implies coheir when we restrict to $\gamma$, as $N \su
 
 \begin{example}
 	esempio linguaggio <, teoria dlo
+
+	Let $L = \{<\}$ and let $T$ be the theory of dense linear orders.
+	It is easy to see that $T$ is a complete theory with Q.E. and admitting countable models.
+	Let $M$ countable model and let $\gamma = L_{x;y}$. Let $b$ enumeration of $M$. Let $N$ be a $\omega_1$-saturated elementary extension of $M$.
+	In this example, if $a$ is an element and $B$ is a set, by $a < B$ we mean: $a < b$ for every $b \in B$. The same goes for $\leq, \geq$ and so on.
+	We denote $(N \setminus M) ^+ := \{n \in N : \forall m \in M \ n > m\}$ and similarly $(N \setminus M) ^-$.
+
+	\begin{enumerate}
+			\item	We compute $C$. Let $(c) \in C$. As in the previous example $c = (c_i : i < \omega)$ and $c \cap (N \setminus M) = \emptyset$.
+				Now let $n \in N$. Then $c_i \not = n$ for every $i < \omega$ because otherwise the property of finitary coheir would fail.
+				We claim that $C = \{(c) : c \equiv b, \forall i < \omega \ (N \setminus M) ^- < c_i < (N \setminus M) ^+\}$.
+				It is clear that $\subseteq$ holds. We must prove that $\supseteq$ holds.
+				Suppose that $c \models \alpha(y) \land \bigwedge_{i=1,..,k} \phi_i(n,y)$. Assume $y_1,..,y_r$ includes all variables actually occurring.
+				It is enough showing that there exists some $m \in M^r$ such that $m \models \gamma-tp(c_1,..,c_r /n)$.
+				Observe that by back and forth $\gamma-tp(c_1,..,c_r/n)$ can only express the relative position of the elements.
+				So it will position:
+				\begin{itemize}
+					\item	elements of $(N \setminus M) ^-$ listed by $n$ as least elements
+					\item	elements of $(N \setminus M) ^+$ listed by $n$ as greates elements
+					\item	elements listed by $n$ between $c_1,..,c_r$ where they belong
+				\end{itemize}
+				The first two cases are satisfied by any $m_1,..,m_r \in M$, while the third can be satisfied because $M$ is a dense linear order without endpoints.
+			
+			\item	Now take for example $c \equiv b$ with $c > m$ for every $m \in M$ and let $h$ be its dual. 
+				Fix $n^+ \in (N \setminus M) ^+, n^- \in (N \setminus M) ^-, m \in M$.
+				Observe that $N / \equiv_{\gamma,M} = M \cup \{(n^+),(n^-)\}$.
+				Take any $n \in N^x$ and let $(l) = h((n))$. Then:
+				\begin{itemize}
+					\item	if $n_i \in (N \setminus M) ^+$ then $c_j < n_i$ for every $j < \omega$.
+					\item	otherwise $c_j > n_i$ for every $j < \omega$.
+				\end{itemize}
+				So $(l_i) = (n^-)$ if $n_i \in N \setminus M ^+$ and $(l_i) = (n^+)$ otherwise.
+
+			\item	We conclude $|\J| \leq 2^x$, but we claim equality holds. This is trivial for $|x| = 1$ but for $\omega$??
+	\end{enumerate}
 \end{example}
+
+One can check that the same argument works for the theory of random graphs as well.
 
 \begin{example}
 	esempio teoria acf
 \end{example}
 
+The same argument should work for any strongly minimal theory.
 
 \end{document}
